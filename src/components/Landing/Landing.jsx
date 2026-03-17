@@ -3,6 +3,12 @@ import React, { useState } from 'react';
 import { X, Phone, Mail, MapPin, Bed, Wifi, Camera, Dumbbell, BookOpen, Shield, Moon, Utensils, Check } from 'lucide-react';
 import Image from 'next/image';
 import { User, Home, MessageSquare, Send } from 'lucide-react';
+import bed from '../../../public/bed.jpeg'
+import kitchen from '../../../public/kitchen.jpeg'
+import cctv from '../../../public/cctv.jpeg'
+import study from '../../../public/study.jpeg'
+import wifi from '../../../public/wifi.jpeg'
+import gym from '../../../public/gym.jpeg'
 
 const Landing = () => {
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
@@ -107,58 +113,58 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Navbar */}
-<nav className="bg-white shadow-md fixed w-full top-0 z-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center h-16 sm:h-20">
-      {/* Logo and Branding */}
-      <div className="flex items-center space-x-2 sm:space-x-4">
-        <Image
-          src="/kgf_2.svg"
-          alt="KGF Logo"
-          width={64}
-          height={64}
-          className="object-contain w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16"
-          priority
-        />
-        <div className="flex flex-col">
-          <div className="flex items-baseline space-x-1 sm:space-x-2">
-            <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-blue-800 bg-clip-text text-transparent">
-              KGF
-            </span>
-            <span className="text-sm sm:text-base md:text-lg font-bold text-gray-900">Boys Hostel</span>
+      <nav className="bg-white shadow-md fixed w-full top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
+            {/* Logo and Branding */}
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <Image
+                src="/kgf_2.svg"
+                alt="KGF Logo"
+                width={64}
+                height={64}
+                className="object-contain w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16"
+                priority
+              />
+              <div className="flex flex-col">
+                <div className="flex items-baseline space-x-1 sm:space-x-2">
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-blue-800 bg-clip-text text-transparent">
+                    KGF
+                  </span>
+                  <span className="text-sm sm:text-base md:text-lg font-bold text-gray-900">Boys Hostel</span>
+                </div>
+                <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-600 leading-tight">Kokan Global Foundation</p>
+              </div>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex space-x-8">
+              <a href="#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
+              <a href="#features" className="text-gray-700 hover:text-blue-600 transition">Features</a>
+              <a href="#facilities" className="text-gray-700 hover:text-blue-600 transition">Facilities</a>
+              <a href="#pricing" className="text-gray-700 hover:text-blue-600 transition">Pricing</a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button
+                onClick={() => setIsLoginOpen(true)}
+                className="bg-gradient-to-r from-green-600 to-green-700 text-white px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-lg hover:from-green-700 hover:to-green-800 transition transform hover:scale-105 text-xs sm:text-sm md:text-base"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => setIsInquiryOpen(true)}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition transform hover:scale-105 text-xs sm:text-sm md:text-base whitespace-nowrap"
+              >
+                <span className="hidden sm:inline">Inquiry Now</span>
+                <span className="sm:hidden">Inquiry</span>
+              </button>
+            </div>
           </div>
-          <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-600 leading-tight">Kokan Global Foundation</p>
         </div>
-      </div>
-
-      {/* Desktop Navigation */}
-      <div className="hidden lg:flex space-x-8">
-        <a href="#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
-        <a href="#features" className="text-gray-700 hover:text-blue-600 transition">Features</a>
-        <a href="#facilities" className="text-gray-700 hover:text-blue-600 transition">Facilities</a>
-        <a href="#pricing" className="text-gray-700 hover:text-blue-600 transition">Pricing</a>
-        <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
-      </div>
-
-      {/* Action Buttons */}
-      <div className="flex items-center gap-2 sm:gap-3">
-        <button
-          onClick={() => setIsLoginOpen(true)}
-          className="bg-gradient-to-r from-green-600 to-green-700 text-white px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-lg hover:from-green-700 hover:to-green-800 transition transform hover:scale-105 text-xs sm:text-sm md:text-base"
-        >
-          Login
-        </button>
-        <button
-          onClick={() => setIsInquiryOpen(true)}
-          className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition transform hover:scale-105 text-xs sm:text-sm md:text-base whitespace-nowrap"
-        >
-          <span className="hidden sm:inline">Inquiry Now</span>
-          <span className="sm:hidden">Inquiry</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</nav>
+      </nav>
 
       {/* Hero Section */}
       <section id="home" className="pt-20 sm:pt-24 pb-8 sm:pb-12 px-4">
@@ -209,281 +215,281 @@ const Landing = () => {
       </section>
 
       {/* Detailed Features Gallery Section - Add this after the Hero section and before the existing Features section */}
-<section id="facilities" className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50">
-  <div className="max-w-7xl mx-auto px-4">
-    {/* Section Header */}
-    <div className="text-center mb-12 sm:mb-16">
-      <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-        Explore Our Facilities
-      </div>
-      <h3 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-        World-Class Amenities
-      </h3>
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-        Experience comfort and convenience with our modern facilities designed for student success
-      </p>
-      <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mt-6"></div>
-    </div>
-
-    {/* Features Grid */}
-    <div className="space-y-12 sm:space-y-16">
-      
-     {/* Feature 1: Comfortable Beds - WITH VIDEO */}
-<div className="grid md:grid-cols-2 gap-8 items-center">
-  <div className="order-2 md:order-1">
-    <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-3 rounded-lg inline-block mb-4">
-      <Bed className="w-8 h-8" />
-    </div>
-    <h4 className="text-3xl font-bold text-gray-900 mb-4">Comfortable Single Beds</h4>
-    <p className="text-lg text-gray-700 mb-4">
-      Each room features premium quality single beds with orthopedic mattresses ensuring a good night's sleep after a long day of studies. Personal space with individual cupboards for all your belongings.
-    </p>
-    <ul className="space-y-2 text-gray-700">
-      <li className="flex items-center gap-2">
-        <Check className="w-5 h-5 text-green-600" />
-        <span>Orthopedic mattresses for better sleep</span>
-      </li>
-      <li className="flex items-center gap-2">
-        <Check className="w-5 h-5 text-green-600" />
-        <span>Individual storage cupboards</span>
-      </li>
-      <li className="flex items-center gap-2">
-        <Check className="w-5 h-5 text-green-600" />
-        <span>Study table and chair in each room</span>
-      </li>
-    </ul>
-  </div>
-  <div className="order-1 md:order-2">
-    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-      <iframe
-        src="https://drive.google.com/file/d/18rikIHDXz7Y6xHVoMNe1QQh2zdQ_wGzB/preview?autoplay=1"
-        className="w-full h-80 rounded-2xl"
-        allow="autoplay"
-        allowFullScreen
-      ></iframe>
-    </div>
-  </div>
-</div>
-
-      {/* Feature 2: Modern Kitchen */}
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-            <img
-              src="/api/placeholder/600/400"
-              alt="Modern Kitchen"
-              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm font-semibold">Fully Equipped Kitchen</p>
+      <section id="facilities" className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              Explore Our Facilities
             </div>
+            <h3 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+              World-Class Amenities
+            </h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Experience comfort and convenience with our modern facilities designed for student success
+            </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mt-6"></div>
           </div>
-        </div>
-        <div>
-          <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-3 rounded-lg inline-block mb-4">
-            <Utensils className="w-8 h-8" />
-          </div>
-          <h4 className="text-3xl font-bold text-gray-900 mb-4">Modern Kitchen Facilities</h4>
-          <p className="text-lg text-gray-700 mb-4">
-            Fully equipped common kitchen with microwave, refrigerator, electric hotplate, and washing machine. Cook your favorite meals and maintain hygiene effortlessly.
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Microwave oven for quick meals</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Refrigerator for food storage</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Electric hotplate & washing machine</span>
-            </li>
-          </ul>
-        </div>
-      </div>
 
-      {/* Feature 3: Study Room & Library */}
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div className="order-2 md:order-1">
-          <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-3 rounded-lg inline-block mb-4">
-            <BookOpen className="w-8 h-8" />
-          </div>
-          <h4 className="text-3xl font-bold text-gray-900 mb-4">Dedicated Study Room & Library</h4>
-          <p className="text-lg text-gray-700 mb-4">
-            A peaceful and well-lit study room with library facilities to help you focus on your academic goals. Perfect environment for group studies and individual concentration.
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Quiet study environment</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Reference books and materials</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Extended study hours</span>
-            </li>
-          </ul>
-        </div>
-        <div className="order-1 md:order-2">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-            <img
-              src="/api/placeholder/600/400"
-              alt="Study Room"
-              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm font-semibold">Quiet Study Environment</p>
+          {/* Features Grid */}
+          <div className="space-y-12 sm:space-y-16">
+
+            {/* Feature 1: Comfortable Beds - WITH VIDEO */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-3 rounded-lg inline-block mb-4">
+                  <Bed className="w-8 h-8" />
+                </div>
+                <h4 className="text-3xl font-bold text-gray-900 mb-4">Comfortable Single Beds</h4>
+                <p className="text-lg text-gray-700 mb-4">
+                  Each room features premium quality single beds with orthopedic mattresses ensuring a good night's sleep after a long day of studies. Personal space with individual cupboards for all your belongings.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Orthopedic mattresses for better sleep</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Individual storage cupboards</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Study table and chair in each room</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="order-1 md:order-2">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={bed}
+                    alt='Single Bed'
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                   
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Feature 4: Recreation & Gym */}
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-            <img
-              src="/api/placeholder/600/400"
-              alt="Gym"
-              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm font-semibold">Fitness & Recreation</p>
+            {/* Feature 2: Modern Kitchen */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+                  <Image
+                    src={kitchen}
+                    alt="Modern Kitchen"
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="text-sm font-semibold">Fully Equipped Kitchen</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-3 rounded-lg inline-block mb-4">
+                  <Utensils className="w-8 h-8" />
+                </div>
+                <h4 className="text-3xl font-bold text-gray-900 mb-4">Modern Kitchen Facilities</h4>
+                <p className="text-lg text-gray-700 mb-4">
+                  Fully equipped common kitchen with microwave, refrigerator, electric hotplate, and washing machine. Cook your favorite meals and maintain hygiene effortlessly.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Microwave oven for quick meals</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Refrigerator for food storage</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Electric hotplate & washing machine</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-        <div>
-          <div className="bg-gradient-to-br from-red-500 to-red-600 text-white p-3 rounded-lg inline-block mb-4">
-            <Dumbbell className="w-8 h-8" />
-          </div>
-          <h4 className="text-3xl font-bold text-gray-900 mb-4">Recreation Gym & Room</h4>
-          <p className="text-lg text-gray-700 mb-4">
-            Stay fit and healthy with our well-equipped gym and recreation room. Perfect for stress relief and maintaining physical fitness alongside your studies.
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Modern gym equipment</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Indoor games and activities</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Relaxation and entertainment area</span>
-            </li>
-          </ul>
-        </div>
-      </div>
 
-      {/* Feature 5: High-Speed WiFi */}
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div className="order-2 md:order-1">
-          <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white p-3 rounded-lg inline-block mb-4">
-            <Wifi className="w-8 h-8" />
-          </div>
-          <h4 className="text-3xl font-bold text-gray-900 mb-4">High-Speed WiFi & Inverter Backup</h4>
-          <p className="text-lg text-gray-700 mb-4">
-            Stay connected 24/7 with high-speed WiFi throughout the hostel. Uninterrupted power supply with inverter backup ensures you never miss important online classes or deadlines.
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Unlimited high-speed internet</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Power backup with inverters</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>No electricity outage concerns</span>
-            </li>
-          </ul>
-        </div>
-        <div className="order-1 md:order-2">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-            <img
-              src="/api/placeholder/600/400"
-              alt="WiFi and Internet"
-              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm font-semibold">24/7 Connectivity</p>
+            {/* Feature 3: Study Room & Library */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-3 rounded-lg inline-block mb-4">
+                  <BookOpen className="w-8 h-8" />
+                </div>
+                <h4 className="text-3xl font-bold text-gray-900 mb-4">Dedicated Study Room & Library</h4>
+                <p className="text-lg text-gray-700 mb-4">
+                  A peaceful and well-lit study room with library facilities to help you focus on your academic goals. Perfect environment for group studies and individual concentration.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Quiet study environment</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Reference books and materials</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Extended study hours</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="order-1 md:order-2">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+                  <Image
+                    src={study}
+                    alt="Study Room"
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="text-sm font-semibold">Quiet Study Environment</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Feature 6: Security & CCTV */}
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-            <img
-              src="/api/placeholder/600/400"
-              alt="Security System"
-              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm font-semibold">Complete Security</p>
+            {/* Feature 4: Recreation & Gym */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+                  <Image
+                    src={gym}
+                    alt="Gym"
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="text-sm font-semibold">Fitness & Recreation</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="bg-gradient-to-br from-red-500 to-red-600 text-white p-3 rounded-lg inline-block mb-4">
+                  <Dumbbell className="w-8 h-8" />
+                </div>
+                <h4 className="text-3xl font-bold text-gray-900 mb-4">Recreation Gym & Room</h4>
+                <p className="text-lg text-gray-700 mb-4">
+                  Stay fit and healthy with our well-equipped gym and recreation room. Perfect for stress relief and maintaining physical fitness alongside your studies.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Modern gym equipment</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Indoor games and activities</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Relaxation and entertainment area</span>
+                  </li>
+                </ul>
+              </div>
             </div>
+
+            {/* Feature 5: High-Speed WiFi */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white p-3 rounded-lg inline-block mb-4">
+                  <Wifi className="w-8 h-8" />
+                </div>
+                <h4 className="text-3xl font-bold text-gray-900 mb-4">High-Speed WiFi & Inverter Backup</h4>
+                <p className="text-lg text-gray-700 mb-4">
+                  Stay connected 24/7 with high-speed WiFi throughout the hostel. Uninterrupted power supply with inverter backup ensures you never miss important online classes or deadlines.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Unlimited high-speed internet</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Power backup with inverters</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>No electricity outage concerns</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="order-1 md:order-2">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+                  <Image
+                    src={wifi}
+                    alt="WiFi and Internet"
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="text-sm font-semibold">24/7 Connectivity</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 6: Security & CCTV */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+                  <Image
+                    src={cctv}
+                    alt="Security System"
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="text-sm font-semibold">Complete Security</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-3 rounded-lg inline-block mb-4">
+                  <Camera className="w-8 h-8" />
+                </div>
+                <h4 className="text-3xl font-bold text-gray-900 mb-4">Complete CCTV Surveillance</h4>
+                <p className="text-lg text-gray-700 mb-4">
+                  Your safety is our priority. Complete CCTV surveillance, dedicated security guards, and experienced wardens ensure a secure living environment 24/7.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>24/7 CCTV monitoring</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Dedicated security personnel</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Experienced warden supervision</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-16 text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 shadow-2xl">
+            <h4 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Ready to Experience Premium Living?
+            </h4>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Book your seat now and enjoy 30% discount on our grand opening
+            </p>
+            <button
+              onClick={() => setIsInquiryOpen(true)}
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition transform hover:scale-105 shadow-xl"
+            >
+              Book Your Seat Now
+            </button>
           </div>
         </div>
-        <div>
-          <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-3 rounded-lg inline-block mb-4">
-            <Camera className="w-8 h-8" />
-          </div>
-          <h4 className="text-3xl font-bold text-gray-900 mb-4">Complete CCTV Surveillance</h4>
-          <p className="text-lg text-gray-700 mb-4">
-            Your safety is our priority. Complete CCTV surveillance, dedicated security guards, and experienced wardens ensure a secure living environment 24/7.
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>24/7 CCTV monitoring</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Dedicated security personnel</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-600" />
-              <span>Experienced warden supervision</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-    {/* Call to Action */}
-    <div className="mt-16 text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 shadow-2xl">
-      <h4 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-        Ready to Experience Premium Living?
-      </h4>
-      <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-        Book your seat now and enjoy 30% discount on our grand opening
-      </p>
-      <button
-        onClick={() => setIsInquiryOpen(true)}
-        className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition transform hover:scale-105 shadow-xl"
-      >
-        Book Your Seat Now
-      </button>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Features Section */}
       <section id="features" className="py-12 sm:py-16 bg-white">
@@ -550,24 +556,24 @@ const Landing = () => {
                   {plan.beds} Bed Room
                 </h4>
                 <div className="mb-4">
-  <span className={`text-xl sm:text-2xl line-through ${index === 1 ? 'text-blue-200' : 'text-gray-400'}`}>
-    ₹{plan.price}
-  </span>
-  <div className="flex items-baseline space-x-2">
-    <span className={`text-4xl sm:text-5xl font-bold ${index === 1 ? 'text-white' : 'text-blue-600'}`}>
-      ₹{plan.finalPrice}
-    </span>
-    <span className={`text-sm sm:text-base ${index === 1 ? 'text-blue-100' : 'text-gray-600'}`}>per bed/month</span>
-  </div>
-  <div className={`mt-2 px-3 py-1 rounded-full inline-block text-sm ${index === 1 ? 'bg-green-500' : 'bg-green-100 text-green-700'}`}>
-    Save {plan.discount}
-  </div>
-</div>
+                  <span className={`text-xl sm:text-2xl line-through ${index === 1 ? 'text-blue-200' : 'text-gray-400'}`}>
+                    ₹{plan.price}
+                  </span>
+                  <div className="flex items-baseline space-x-2">
+                    <span className={`text-4xl sm:text-5xl font-bold ${index === 1 ? 'text-white' : 'text-blue-600'}`}>
+                      ₹{plan.finalPrice}
+                    </span>
+                    <span className={`text-sm sm:text-base ${index === 1 ? 'text-blue-100' : 'text-gray-600'}`}>per bed/month</span>
+                  </div>
+                  <div className={`mt-2 px-3 py-1 rounded-full inline-block text-sm ${index === 1 ? 'bg-green-500' : 'bg-green-100 text-green-700'}`}>
+                    Save {plan.discount}
+                  </div>
+                </div>
                 <button
                   onClick={() => setIsInquiryOpen(true)}
                   className={`w-full py-3 rounded-lg font-semibold transition text-sm sm:text-base ${index === 1
-                      ? 'bg-white text-blue-600 hover:bg-blue-50'
-                      : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800'
+                    ? 'bg-white text-blue-600 hover:bg-blue-50'
+                    : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800'
                     }`}
                 >
                   Book Now
@@ -775,90 +781,90 @@ const Landing = () => {
         </div>
       )}
 
-{/* Login Modal */}
-{isLoginOpen && (
-  <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-    <div className="bg-white rounded-3xl max-w-4xl w-full shadow-2xl relative p-8">
-      <button
-        onClick={() => setIsLoginOpen(false)}
-        className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
-      >
-        <X className="w-6 h-6" />
-      </button>
-      
-      <h3 className="text-3xl font-bold text-gray-900 mb-2 text-center">Login</h3>
-      <p className="text-gray-600 mb-8 text-center">Select your login type</p>
-      
-      <div className="grid md:grid-cols-3 gap-6">
-        {/* Parent Login Card */}
-        <a
-          href="https://kokanglobal.org/parent"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl transform hover:scale-105"
-        >
-          <div className="text-center">
-            <div className="w-24 h-24 mx-auto mb-4 bg-blue-600 rounded-full flex items-center justify-center">
-              <User className="w-12 h-12 text-white" />
-            </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-2">Parent Login</h4>
-            <p className="text-gray-600 text-sm">Access parent portal</p>
-            <div className="mt-4 inline-flex items-center text-blue-600 font-semibold">
-              Login Now
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+      {/* Login Modal */}
+      {isLoginOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-4xl w-full shadow-2xl relative p-8">
+            <button
+              onClick={() => setIsLoginOpen(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <h3 className="text-3xl font-bold text-gray-900 mb-2 text-center">Login</h3>
+            <p className="text-gray-600 mb-8 text-center">Select your login type</p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Parent Login Card */}
+              <a
+                href="https://kokanglobal.org/parent"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl transform hover:scale-105"
+              >
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 bg-blue-600 rounded-full flex items-center justify-center">
+                    <User className="w-12 h-12 text-white" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Parent Login</h4>
+                  <p className="text-gray-600 text-sm">Access parent portal</p>
+                  <div className="mt-4 inline-flex items-center text-blue-600 font-semibold">
+                    Login Now
+                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+
+              {/* Student Login Card */}
+              <a
+                href="https://kokanglobal.org/student"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-xl transform hover:scale-105"
+              >
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
+                    <BookOpen className="w-12 h-12 text-white" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Student Login</h4>
+                  <p className="text-gray-600 text-sm">Access student portal</p>
+                  <div className="mt-4 inline-flex items-center text-green-600 font-semibold">
+                    Login Now
+                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+
+              {/* Warden Login Card */}
+
+              <a href="https://kokanglobal.org/warden"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl transform hover:scale-105"
+              >
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 bg-purple-600 rounded-full flex items-center justify-center">
+                    <Shield className="w-12 h-12 text-white" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Warden Login</h4>
+                  <p className="text-gray-600 text-sm">Access warden portal</p>
+                  <div className="mt-4 inline-flex items-center text-purple-600 font-semibold">
+                    Login Now
+                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
-        </a>
-
-        {/* Student Login Card */}
-        <a
-          href="https://kokanglobal.org/student"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative overflow-hidden bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-xl transform hover:scale-105"
-        >
-          <div className="text-center">
-            <div className="w-24 h-24 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
-              <BookOpen className="w-12 h-12 text-white" />
-            </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-2">Student Login</h4>
-            <p className="text-gray-600 text-sm">Access student portal</p>
-            <div className="mt-4 inline-flex items-center text-green-600 font-semibold">
-              Login Now
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-          </div>
-        </a>
-
-        {/* Warden Login Card */}
-
-  <a href="https://kokanglobal.org/warden"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl transform hover:scale-105"
->
-  <div className="text-center">
-    <div className="w-24 h-24 mx-auto mb-4 bg-purple-600 rounded-full flex items-center justify-center">
-      <Shield className="w-12 h-12 text-white" />
-    </div>
-    <h4 className="text-2xl font-bold text-gray-900 mb-2">Warden Login</h4>
-    <p className="text-gray-600 text-sm">Access warden portal</p>
-    <div className="mt-4 inline-flex items-center text-purple-600 font-semibold">
-      Login Now
-      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </div>
-  </div>
-</a>
-      </div>
-    </div>
-  </div>
-)}
+        </div>
+      )}
     </div>
   );
 };
