@@ -81,9 +81,9 @@ const Landing = () => {
   };
 
   const pricingPlans = [
-    { beds: 5, price: 6000, discount: '30%', finalPrice: 4200 },
-    { beds: 4, price: 6500, discount: '30%', finalPrice: 4550 },
-    { beds: 3, price: 7000, discount: '30%', finalPrice: 4900 }
+    { beds: 5, price: 6000, discount: '30%', finalPrice: 4500 },
+    { beds: 4, price: 6500, discount: '30%', finalPrice: 5000 },
+    { beds: 3, price: 7000, discount: '30%', finalPrice: 5500 }
   ];
 
   const features = [
@@ -782,85 +782,80 @@ const Landing = () => {
       )}
 
       {/* Login Modal */}
+{/* Login Modal - MOBILE SCROLL FIX */}
       {isLoginOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-4xl w-full shadow-2xl relative p-8">
-            <button
-              onClick={() => setIsLoginOpen(false)}
-              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 overflow-y-auto">
+          <div className="flex items-start justify-center min-h-full p-4 py-6">
+            <div className="bg-white rounded-3xl max-w-4xl w-full shadow-2xl relative p-4 sm:p-8 my-auto">
 
-            <h3 className="text-3xl font-bold text-gray-900 mb-2 text-center">Login</h3>
-            <p className="text-gray-600 mb-8 text-center">Select your login type</p>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Parent Login Card */}
-              <a
-                href="https://kokanglobal.org/parent"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl transform hover:scale-105"
+              <button
+                onClick={() => setIsLoginOpen(false)}
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 text-gray-400 hover:text-gray-600 transition-colors z-10"
               >
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-blue-600 rounded-full flex items-center justify-center">
-                    <User className="w-12 h-12 text-white" />
-                  </div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Parent Login</h4>
-                  <p className="text-gray-600 text-sm">Access parent portal</p>
-                  <div className="mt-4 inline-flex items-center text-blue-600 font-semibold">
-                    Login Now
-                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </a>
+                <X className="w-6 h-6" />
+              </button>
 
-              {/* Student Login Card */}
-              <a
-                href="https://kokanglobal.org/student"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative overflow-hidden bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-xl transform hover:scale-105"
-              >
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
-                    <BookOpen className="w-12 h-12 text-white" />
-                  </div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Student Login</h4>
-                  <p className="text-gray-600 text-sm">Access student portal</p>
-                  <div className="mt-4 inline-flex items-center text-green-600 font-semibold">
-                    Login Now
-                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </a>
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">Login</h3>
+              <p className="text-gray-600 mb-6 sm:mb-8 text-center">Select your login type</p>
 
-              {/* Warden Login Card */}
+              {/* grid-cols-1 on mobile so cards stack and the overlay can scroll */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
 
-              <a href="https://kokanglobal.org/warden"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl transform hover:scale-105"
-              >
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-purple-600 rounded-full flex items-center justify-center">
-                    <Shield className="w-12 h-12 text-white" />
+                {/* Parent Login */}
+                <a href="https://kokanglobal.org/parent" target="_blank" rel="noopener noreferrer"
+                  className="group relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 sm:p-8 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl transform hover:scale-105">
+                  <div className="text-center">
+                    <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 bg-blue-600 rounded-full flex items-center justify-center">
+                      <User className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Parent Login</h4>
+                    <p className="text-gray-600 text-sm">Access parent portal</p>
+                    <div className="mt-4 inline-flex items-center text-blue-600 font-semibold">
+                      Login Now
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Warden Login</h4>
-                  <p className="text-gray-600 text-sm">Access warden portal</p>
-                  <div className="mt-4 inline-flex items-center text-purple-600 font-semibold">
-                    Login Now
-                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                </a>
+
+                {/* Student Login */}
+                <a href="https://kokanglobal.org/student" target="_blank" rel="noopener noreferrer"
+                  className="group relative overflow-hidden bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 sm:p-8 border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-xl transform hover:scale-105">
+                  <div className="text-center">
+                    <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
+                      <BookOpen className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Student Login</h4>
+                    <p className="text-gray-600 text-sm">Access student portal</p>
+                    <div className="mt-4 inline-flex items-center text-green-600 font-semibold">
+                      Login Now
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+
+                {/* Warden Login */}
+                <a href="https://kokanglobal.org/warden" target="_blank" rel="noopener noreferrer"
+                  className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 sm:p-8 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl transform hover:scale-105">
+                  <div className="text-center">
+                    <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 bg-purple-600 rounded-full flex items-center justify-center">
+                      <Shield className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Warden Login</h4>
+                    <p className="text-gray-600 text-sm">Access warden portal</p>
+                    <div className="mt-4 inline-flex items-center text-purple-600 font-semibold">
+                      Login Now
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
             </div>
           </div>
         </div>
