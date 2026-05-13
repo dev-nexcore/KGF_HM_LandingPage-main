@@ -162,13 +162,13 @@ export default function Landing() {
 
             <div className="flex items-center gap-2 sm:gap-3">
               <button onClick={() => setIsLoginOpen(true)}
-                className="hidden sm:flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-xl border-2 transition-all duration-200 hover:bg-[#1a5c3a] hover:text-white"
+                className="hidden sm:flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-xl border-2 transition-all duration-200 hover:bg-[#1a5c3a]/5"
                 style={{ borderColor: '#1a5c3a', color: '#1a5c3a' }}>
                 <User className="w-4 h-4"/> Login
               </button>
               <button onClick={() => setIsInquiryOpen(true)}
-                className="text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-white transition-all hover:scale-105 shadow-lg"
-                style={{ background: 'linear-gradient(135deg,#1a5c3a,#2d7a50)', boxShadow: '0 4px 18px rgba(26,92,58,0.35)' }}>
+                className="text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-white transition-all hover:brightness-110 shadow-md active:scale-95"
+                style={{ background: 'linear-gradient(135deg,#1a5c3a,#2d7a50)', boxShadow: '0 4px 12px rgba(26,92,58,0.2)' }}>
                 Inquiry Now
               </button>
               <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-1" style={{ color: '#4a6741' }}>
@@ -226,7 +226,7 @@ export default function Landing() {
 
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
                 <button onClick={() => setIsInquiryOpen(true)}
-                  className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-base text-white transition-all hover:scale-105"
+                  className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-base text-white transition-all hover:opacity-95"
                   style={{ background: 'linear-gradient(135deg,#1a5c3a,#2d7a50)', boxShadow: '0 8px 28px rgba(26,92,58,0.38)' }}>
                   Book Your Seat <ArrowRight className="w-5 h-5"/>
                 </button>
@@ -329,7 +329,7 @@ export default function Landing() {
                 ))}
               </ul>
               <button onClick={() => setIsInquiryOpen(true)}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white transition-all hover:scale-105"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white transition-all hover:opacity-95"
                 style={{ background: 'linear-gradient(135deg,#1a5c3a,#2d7a50)', boxShadow: '0 4px 16px rgba(26,92,58,0.35)' }}>
                 Book Your Seat <ArrowRight className="w-4 h-4"/>
               </button>
@@ -362,7 +362,7 @@ export default function Landing() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {features.map((f, i) => (
-              <div key={i} className="group rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 cursor-default"
+              <div key={i} className="group rounded-2xl p-5 transition-all duration-300 hover:shadow-md cursor-default"
                 style={{ background: '#fff', border: '1.5px solid rgba(200,151,42,0.18)', boxShadow: '0 2px 12px rgba(26,92,58,0.06)' }}
                 onMouseEnter={e => e.currentTarget.style.borderColor='rgba(26,92,58,0.35)'}
                 onMouseLeave={e => e.currentTarget.style.borderColor='rgba(200,151,42,0.18)'}>
@@ -425,7 +425,7 @@ export default function Landing() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {plans.map((p, i) => (
-              <div key={i} className="relative rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
+              <div key={i} className="relative rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl"
                 style={{
                   background: p.featured ? 'linear-gradient(160deg,#0f2e1a,#1a5c3a)' : '#fff',
                   border:     p.featured ? '2px solid #c8972a' : '1.5px solid rgba(200,151,42,0.22)',
@@ -495,7 +495,7 @@ export default function Landing() {
               { icon: MapPin, label:'Visit Us', lines:['Panvel, Maharashtra'],               href:'https://maps.app.goo.gl/KowWiWN1GAkK4kLe6', external:true },
             ].map((c,i)=>(
               <a key={i} href={c.href} target={c.external?'_blank':undefined} rel={c.external?'noopener noreferrer':undefined}
-                className="group rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-1"
+                className="group rounded-3xl p-8 text-center transition-all duration-300"
                 style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.12)', backdropFilter:'blur(8px)' }}
                 onMouseEnter={e=>e.currentTarget.style.borderColor='rgba(200,151,42,0.5)'}
                 onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(255,255,255,0.12)'}>
@@ -610,9 +610,9 @@ export default function Landing() {
       {isLoginOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto" style={{ background:'rgba(15,46,26,0.75)', backdropFilter:'blur(10px)' }}>
           <div className="flex items-start justify-center min-h-full p-4 py-8">
-            <div className="rounded-3xl max-w-3xl w-full shadow-2xl relative p-6 sm:p-10 my-auto"
+            <div className="rounded-3xl max-w-3xl w-full shadow-2xl relative p-6 sm:p-10 my-auto overflow-hidden"
               style={{ background:'#faf8f3', border:'1.5px solid rgba(200,151,42,0.25)' }}>
-              <div className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl" style={{ background:'linear-gradient(90deg,#1a5c3a,#c8972a,#1a5c3a)' }}/>
+              <div className="absolute top-0 left-0 right-0 h-1" style={{ background:'linear-gradient(90deg,#1a5c3a,#c8972a,#1a5c3a)' }}/>
               <button onClick={()=>setIsLoginOpen(false)}
                 className="absolute top-5 right-5 rounded-xl p-1.5"
                 style={{ background:'rgba(26,92,58,0.08)', color:'#4a6741' }}>
@@ -629,7 +629,7 @@ export default function Landing() {
                   { href:'https://kokanglobal.org/warden',  icon:Shield,   label:'Warden Login',  desc:'Access warden portal',  color:'#6d28d9', light:'rgba(109,40,217,0.08)' },
                 ].map((item,i)=>(
                   <a key={i} href={item.href} target="_blank" rel="noopener noreferrer"
-                    className="group rounded-2xl p-7 text-center transition-all duration-300 hover:-translate-y-1"
+                    className="group rounded-2xl p-7 text-center transition-all duration-300 hover:shadow-md"
                     style={{ background:'#fff', border:'1.5px solid rgba(200,151,42,0.2)', boxShadow:'0 2px 12px rgba(26,92,58,0.06)' }}
                     onMouseEnter={e=>e.currentTarget.style.borderColor=item.color}
                     onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(200,151,42,0.2)'}>
