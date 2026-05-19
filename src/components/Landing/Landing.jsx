@@ -36,21 +36,18 @@ const Landing = () => {
     setSubmitStatus(null);
 
     try {
-      // Using Formsubmit - no signup required, no branding
-      const formDataObj = new FormData();
-      formDataObj.append('name', formData.name);
-      formDataObj.append('email', formData.email);
-      formDataObj.append('phone', formData.phone);
-      formDataObj.append('room_type', formData.roomType);
-      formDataObj.append('message', formData.message);
-      formDataObj.append('_subject', 'New Hostel Inquiry from KGF Website');
-      formDataObj.append('_captcha', 'false'); // Disable captcha
-      formDataObj.append('_template', 'table'); // Nice table format
-
-      // Replace 'akshat.g10b14kis' with your email (remove @gmail.com part)
-      const response = await fetch('https://formsubmit.co/ajax/kgf@gmail.com', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_PROD_API_URL || 'http://localhost:5224'}/api/inquiries/submit`, {
         method: 'POST',
-        body: formDataObj
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          roomType: formData.roomType,
+          message: formData.message
+        })
       });
 
       const result = await response.json();
@@ -70,10 +67,10 @@ const Landing = () => {
         }, 2000);
       } else {
         setSubmitStatus('error');
-        console.error('Formsubmit error:', result.message || 'Unknown error');
+        console.error('Submit error:', result.message || 'Unknown error');
       }
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error submitting inquiry:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
