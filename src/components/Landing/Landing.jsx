@@ -709,9 +709,9 @@ const Landing = () => {
                     onChange={handleInputChange}
                     className="w-full px-3 sm:px-4 py-3 sm:py-3.5 pl-10 sm:pl-12 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none appearance-none bg-white cursor-pointer text-sm sm:text-base"
                   >
-                    <option value="5-bed">5 Bed Room - ₹4200/month</option>
-                    <option value="4-bed">4 Bed Room - ₹4550/month</option>
-                    <option value="3-bed">3 Bed Room - ₹4900/month</option>
+                    <option value="5-bed">5 Bed Room - ₹4500/month</option>
+                    <option value="4-bed">4 Bed Room - ₹5000/month</option>
+                    <option value="3-bed">3 Bed Room - ₹5500/month</option>
                   </select>
                   <Home className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
