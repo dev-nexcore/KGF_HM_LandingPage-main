@@ -36,7 +36,7 @@ const Landing = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_PROD_API_URL || 'http://localhost:5224'}/api/inquiries/submit`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_PROD_API_URL || 'https://kgf-hm-api.nexcorealliance.com'}/api/inquiries/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
