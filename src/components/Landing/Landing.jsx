@@ -20,73 +20,20 @@ const Landing = () => {
     roomType: '5-bed',
     message: ''
   });
-  const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    let filteredValue = value;
-
-    if (name === 'name') {
-      // Block digits — only letters, spaces, dots, hyphens, apostrophes allowed
-      filteredValue = value.replace(/[0-9]/g, '');
-    }
-
-    if (name === 'phone') {
-      // Block non-digits and cap at 10 characters
-      filteredValue = value.replace(/[^0-9]/g, '').slice(0, 10);
-    }
-
-    setFormData({ ...formData, [name]: filteredValue });
-    // Clear error for the field being edited
-    if (formErrors[name]) {
-      setFormErrors({ ...formErrors, [name]: '' });
-    }
-  };
-
-  const validateForm = () => {
-    const errors = {};
-
-    // Name validation — required, min 2 chars, no digits allowed
-    if (!formData.name.trim()) {
-      errors.name = 'Full name is required.';
-    } else if (formData.name.trim().length < 2) {
-      errors.name = 'Name must be at least 2 characters.';
-    } else if (/[0-9]/.test(formData.name)) {
-      errors.name = 'Name must not contain numbers.';
-    }
-
-    // Email validation — required and valid format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      errors.email = 'Email address is required.';
-    } else if (!emailRegex.test(formData.email.trim())) {
-      errors.email = 'Please enter a valid email address.';
-    }
-
-    // Phone validation — required, digits only, exactly 10 digits
-    if (!formData.phone.trim()) {
-      errors.phone = 'Phone number is required.';
-    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-      errors.phone = 'Phone number must be exactly 10 digits.';
-    }
-
-    return errors;
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitStatus(null);
-
-    // Run client-side validation first
-    const errors = validateForm();
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-      return;
-    }
-    setFormErrors({});
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_PROD_API_URL || 'https://kgf-hm-api.nexcorealliance.com'}/api/inquiries/submit`, {
@@ -128,14 +75,6 @@ const Landing = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  // Opens inquiry modal and pre-selects the chosen room type
-  const openInquiryWithRoom = (roomType = '5-bed') => {
-    setFormData(prev => ({ ...prev, roomType }));
-    setFormErrors({});
-    setSubmitStatus(null);
-    setIsInquiryOpen(true);
   };
 
   const pricingPlans = [
@@ -550,7 +489,11 @@ const Landing = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-12 sm:py-16 bg-white">
+      {/* Features Section */}
+<section
+  id="features"
+  className="scroll-mt-20 sm:scroll-mt-24 lg:scroll-mt-28 py-12 sm:py-16 bg-white"
+>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Hostel Salient Features</h3>
@@ -592,7 +535,11 @@ const Landing = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-12 sm:py-16 bg-white">
+     {/* Features Section */}
+<section
+  id="pricing"
+className="scroll-mt-16 sm:scroll-mt-20 py-12 sm:py-16 bg-white"
+>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Special Opening Discount</h3>
@@ -628,7 +575,7 @@ const Landing = () => {
                   </div>
                 </div>
                 <button
-                  onClick={() => openInquiryWithRoom(`${plan.beds}-bed`)}
+                  onClick={() => setIsInquiryOpen(true)}
                   className={`w-full py-3 rounded-lg font-semibold transition text-sm sm:text-base ${index === 1
                     ? 'bg-white text-blue-600 hover:bg-blue-50'
                     : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800'
@@ -704,7 +651,7 @@ const Landing = () => {
               {/* Name Field */}
               <div className="group">
                 <label className="block text-gray-700 font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide">
-                  Full Name <span className="text-red-500">*</span>
+                  Full Name
                 </label>
                 <div className="relative">
                   <input
@@ -712,27 +659,18 @@ const Landing = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-3 sm:px-4 py-3 sm:py-3.5 pl-10 sm:pl-12 border-2 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm sm:text-base ${
-                      formErrors.name ? 'border-red-400 bg-red-50' : 'border-gray-200'
-                    }`}
+                    required
+                    className="w-full px-3 sm:px-4 py-3 sm:py-3.5 pl-10 sm:pl-12 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm sm:text-base"
                     placeholder="John Doe"
                   />
-                  <User className={`w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 ${formErrors.name ? 'text-red-400' : 'text-gray-400'}`} />
+                  <User className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2" />
                 </div>
-                {formErrors.name && (
-                  <p className="mt-1.5 text-xs text-red-500 flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
-                    {formErrors.name}
-                  </p>
-                )}
               </div>
 
               {/* Email Field */}
               <div className="group">
                 <label className="block text-gray-700 font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide">
-                  Email Address <span className="text-red-500">*</span>
+                  Email Address
                 </label>
                 <div className="relative">
                   <input
@@ -740,27 +678,18 @@ const Landing = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-3 sm:px-4 py-3 sm:py-3.5 pl-10 sm:pl-12 border-2 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm sm:text-base ${
-                      formErrors.email ? 'border-red-400 bg-red-50' : 'border-gray-200'
-                    }`}
+                    required
+                    className="w-full px-3 sm:px-4 py-3 sm:py-3.5 pl-10 sm:pl-12 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm sm:text-base"
                     placeholder="john@example.com"
                   />
-                  <Mail className={`w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 ${formErrors.email ? 'text-red-400' : 'text-gray-400'}`} />
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2" />
                 </div>
-                {formErrors.email && (
-                  <p className="mt-1.5 text-xs text-red-500 flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
-                    {formErrors.email}
-                  </p>
-                )}
               </div>
 
               {/* Phone Field */}
               <div className="group">
                 <label className="block text-gray-700 font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide">
-                  Phone Number <span className="text-red-500">*</span>
+                  Phone Number
                 </label>
                 <div className="relative">
                   <input
@@ -768,21 +697,12 @@ const Landing = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className={`w-full px-3 sm:px-4 py-3 sm:py-3.5 pl-10 sm:pl-12 border-2 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm sm:text-base ${
-                      formErrors.phone ? 'border-red-400 bg-red-50' : 'border-gray-200'
-                    }`}
+                    required
+                    className="w-full px-3 sm:px-4 py-3 sm:py-3.5 pl-10 sm:pl-12 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm sm:text-base"
                     placeholder="+91 XXXXX XXXXX"
                   />
-                  <Phone className={`w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 ${formErrors.phone ? 'text-red-400' : 'text-gray-400'}`} />
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2" />
                 </div>
-                {formErrors.phone && (
-                  <p className="mt-1.5 text-xs text-red-500 flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
-                    {formErrors.phone}
-                  </p>
-                )}
               </div>
 
               {/* Room Type Field */}
